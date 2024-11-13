@@ -6,7 +6,8 @@ To develop a Django application to store and retrieve data from a bank loan data
 
 ## ENTITY RELATIONSHIP DIAGRAM
 
-![Screenshot 2024-03-05 112538](https://github.com/user-attachments/assets/442218de-68c5-48e0-bdd1-90553d61158e)
+![DBMS INDEX](https://github.com/user-attachments/assets/809d6dec-3abe-45c2-b936-81a9d2e8efe3)
+
 
 
 ## DESIGN STEPS
@@ -25,27 +26,25 @@ Execute Django admin and create details for 10 books
 
 ## PROGRAM
 ```
-from django.contrib import admin
-from .models import Book_DB,Book_DBAdmin
-admin.site.register(Book_DB,Book_DBAdmin)
 
-from django.db import models
-from django.contrib import admin
-class Book_DB(models.Model):
-     serialno=models.IntegerField(primary_key="serialno");
-     bookname=models.CharField(max_length=20);
-     publisher=models.CharField(max_length=20);
-     Dop=models.DateField();
-     totalpg=models.IntegerField();
-class Book_DBAdmin(admin.ModelAdmin):
-     list_display=("serialno","bookname","publisher","Dop","totalpg");
+admin.py
+
+from django.contrib import admin from .models import loan,loanadmin admin.site.register(loan,loanadmin)
+
+models.py
+
+from django.db import models from django.contrib import admin class loan (models.Model): loan_id=models.IntegerField(primary_key=True) loan_type =models.CharField(max_length=30) loan_amnt =models.FloatField() cust_acntno =models.IntegerField() cust_name=models.CharField(max_length=50)
+
+class loanadmin(admin.ModelAdmin): list_display=('loan_id','loan_type','loan_amnt','cust_acntno','cust_name')
+
 
 ```
 
 
 ## OUTPUT
 
-![Screenshot 2024-03-05 110658 (1](https://github.com/user-attachments/assets/107ddf30-cdb7-4362-991a-375754bd33b1)
+![Screenshot 2024-03-05 110658 (1](https://github.com/user-attachments/assets/dba0483e-8999-4de7-af70-08300ecd9c6e)
+
 
 
 Include the screenshot of your admin page.
