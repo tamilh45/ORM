@@ -47,9 +47,5 @@ class loanadmin(admin.ModelAdmin): list_display=('loan_id','loan_type','loan_amn
 
 
 
-
-Include the screenshot of your admin page.
-
-
 ## RESULT
 Thus the program for creating a database using ORM hass been executed successfully
